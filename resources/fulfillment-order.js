@@ -66,6 +66,13 @@ FulfillmentOrder.prototype.close = function close(id, message = '') {
   return this.shopify.request(url, 'POST', this.key, { message });
 };
 
+FulfillmentOrder.prototype.open = function open(id, message = '') {
+  const url = this.buildUrl(`${id}/open`);
+  console.log(url)
+  return this.shopify.request(url, 'POST', this.key, { message });
+};
+
+
 /**
  * Moves a fulfillment order from one merchant managed location to another
  * merchant managed location.
